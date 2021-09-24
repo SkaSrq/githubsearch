@@ -28,7 +28,7 @@ const Signup = ()=>{
         const auth = getAuth();
         createUserWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
-            // Signed in 
+            // Signed up
             const user = userCredential.user;
             console.log(userCredential);
             context.setUser({email: user.email, uid:user.uid});
