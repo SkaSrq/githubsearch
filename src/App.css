@@ -36,3 +36,26 @@
     transform: rotate(360deg);
   }
 }
+
+.firstContainer{
+  display: flex;
+  flex-grow: 9;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.secondContainer{
+  /* background-color:bisque; */
+  font-weight: bold;
+}
+
+.textField{
+  width: 90%;
+}
+
+.label{
+  text-align: left;
+}
+.card{
+  margin-top: 10%;
+}

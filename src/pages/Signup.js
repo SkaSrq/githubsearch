@@ -2,7 +2,6 @@ import React, {useContext, useState} from 'react'
 import {
     Container,
     Form,
-    Button,
     FormGroup,
     Label,
     Col,
@@ -13,7 +12,9 @@ import {
     CardFooter,
     CardHeader
 } from 'reactstrap';
+import { TextField } from '@mui/material';
 
+import Button from '@mui/material/Button';
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import { UserContext } from '../context/UserContext';
 import { Redirect } from 'react-router-dom';
@@ -52,41 +53,48 @@ const Signup = ()=>{
         <Container className = 'text-center'>
             <Row>
                 <Col lg={6} className='offset-lg-3 mt-5'>
-                    <Card>
+                    <Card className="card">
                         <Form onSubmit={handleSubmit}>
                             <CardHeader className=''>SignUp here</CardHeader>
                             <CardBody>
                                 <FormGroup row>
                                     <Label for='email' sm={3}>Email</Label>
                                     <Col sm={9}>
-                                        <Input
+                                        {/* <Input
                                         type="email"
                                         name="email"
                                         id="email"
                                         placeholder='Provide your email'
                                         value={email}
                                         onChange={e=>setEmail(e.target.value)}
-                                        />
+                                        /> */}
+                                        <TextField value={email}
+                                        onChange={e=>setEmail(e.target.value)} size="small" type="email" id="outlined-basic" label="Email" variant="outlined" className="textField" />
+                                    
                                     </Col>
                                 </FormGroup>
-                                <FormGroup row>
-                                    <Label for='password' sm={3}>Email</Label>
+                                <FormGroup row className="mt-2">
+                                    <Label for='password' sm={3}>Password</Label>
                                     <Col sm={9}>
-                                        <Input
+                                        {/* <Input
                                         type="password"
                                         name="password"
                                         id="password"
                                         placeholder='Provide your password'
                                         value={password}
                                         onChange={e=>setPassword(e.target.value)}
-                                        />
+                                        /> */}
+                                        <TextField value={password}
+                                        onChange={e=>setPassword(e.target.value)} size="small" type="password" id="outlined-basic" label="Password" variant="outlined" className="textField" />
+                                
                                     </Col>
                                 </FormGroup>
                             </CardBody>
                             <CardFooter>
-                                <Button type='submit' block color='primary'>
+                                {/* <Button type='submit' block color='primary'>
                                     SignUp
-                                </Button>
+                                </Button> */}
+                                <Button type="submit" className=" btn-outline-light" variant="outlined">Sign Up</Button>
                             </CardFooter>
                         </Form>
                     </Card>

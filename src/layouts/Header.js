@@ -20,35 +20,48 @@ const Header = ()=>{
     const toggle = ()=>{
         setIsOpen(!isOpen);
     };
+
+    let getUser = ()=>{
+        if(context.user && context.user?.email){
+            const emailAdd = context.user.email;
+            const myArr = emailAdd.split("@");
+            return myArr[0];
+        }
+        else{
+            return null;
+        }
+    };
     return(
         <Navbar color="info" light expand="md">
             <Container>
-                <NavbarBrand>
-                    <Link to="/" className="text-white">
+                <NavbarBrand className="text-white" tag={Link} to="/">
+                Sharique Github Repo
+                    {/* <Link to="/" className="text-white">
                         Sharique Github Repo
-                    </Link>
+                    </Link> */}
                 </NavbarBrand>
-                <NavbarText className="text-black">
-                    {context.user?.email ? context.user.email:""}
+                <NavbarText className="text-white font-weight-bold firstContainer">
+                    {/* {context.user?.email ? context.user.email:""} */}
+                    {getUser()}
                 </NavbarText>
                 <NavbarToggler onClick={toggle}/>
                 <Collapse isOpen={isOpen} navbar>
-                    <Nav className="ml-auto" navbar>
+                    <Nav className="secondContainer" navbar>
                         {context.user?(
                             <NavItem>
-                                <NavLink onClick={()=>{context.setUser(null)}} className="text-white">
+                                <NavLink onClick={()=>{context.setUser(null)}} tag={Link} to="/" className="text-white">
                                 Logout
                             </NavLink>
                             </NavItem>
                         ):(
                             <>
                             <NavItem>
-                                <NavLink tag={Link} to="/login" className="text-white">
+                                <NavLink onClick={()=>(setIsOpen(!isOpen))} tag={Link} to="/login" className="text-white">
                                 Login
                             </NavLink>
                             </NavItem>
                             <NavItem>
-                                <NavLink tag={Link} to="/signup" className="text-white">
+                                <NavLink onClick={()=>(setIsOpen(!isOpen))} tag={Link} to="/signup" className="text-white">
                                 Signup
                             </NavLink>
                             </NavItem>
